@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07070d" />
+    <title>Ночной куш — неоновый слот</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="noise"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ночной куш">
+        <span class="brand-mark">НК</span>
+        <span>
+          <strong>НОЧНОЙ КУШ</strong>
+          <small>Казино, которого нет</small>
+        </span>
+      </a>
+      <div class="topbar-actions">
+        <span class="demo-pill"><i></i> ДЕМО-РЕЖИМ</span>
+        <button class="icon-button" id="soundButton" type="button" aria-label="Выключить звук" title="Звук">♪</button>
+        <button class="icon-button" id="resetButton" type="button" aria-label="Начать заново" title="Сбросить прогресс">↻</button>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <section class="machine-card">
+        <div class="machine-header">
+          <div>
+            <span class="eyebrow">СЕГОДНЯ В ХРАНИЛИЩЕ</span>
+            <div class="jackpot" id="jackpotValue">₽ 48 750</div>
+          </div>
+          <div class="heat-wrap">
+            <div class="heat-label">
+              <span>ЖАР</span>
+              <strong id="heatLabel">0%</strong>
+            </div>
+            <div class="heat-track"><div class="heat-fill" id="heatFill"></div></div>
+          </div>
+        </div>
+
+        <div class="mode-banner" id="modeBanner">
+          <span class="mode-icon">⚡</span>
+          <span><strong>НЕОНОВЫЙ РАЗГОН</strong> · заполни шкалу жара и получи 5 бесплатных спинов ×2</span>
+        </div>
+
+        <div class="slot-shell" id="slotShell">
+          <div class="payline payline-top"></div>
+          <div class="payline payline-middle"></div>
+          <div class="payline payline-bottom"></div>
+          <div class="reels" id="reels" aria-label="Игровые барабаны"></div>
+          <div class="side-lights left-lights"><i></i><i></i><i></i></div>
+          <div class="side-lights right-lights"><i></i><i></i><i></i></div>
+        </div>
+
+        <div class="message" id="message" aria-live="polite">
+          <span class="message-kicker">СИСТЕМА ГОТОВА</span>
+          <strong>Сделай первый спин</strong>
+        </div>
+
+        <div class="control-deck">
+          <div class="wallet stat-box">
+            <span>БАЛАНС</span>
+            <strong id="balanceValue">1 500</strong>
+            <small>виртуальных фишек</small>
+          </div>
+
+          <div class="bet-control">
+            <span>СТАВКА</span>
+            <div class="stepper">
+              <button id="betMinus" type="button" aria-label="Уменьшить ставку">−</button>
+              <strong id="betValue">50</strong>
+              <button id="betPlus" type="button" aria-label="Увеличить ставку">+</button>
+            </div>
+          </div>
+
+          <button class="spin-button" id="spinButton" type="button">
+            <span class="spin-ring"></span>
+            <span class="spin-copy"><strong>КРУТИТЬ</strong><small>ПРОБЕЛ</small></span>
+          </button>
+
+          <div class="win stat-box">
+            <span>ВЫИГРЫШ</span>
+            <strong id="winValue">0</strong>
+            <small id="multiplierValue">множитель ×1</small>
+          </div>
+
+          <button class="max-button" id="maxButton" type="button">МАКС<br /><strong>500</strong></button>
+        </div>
+      </section>
+
+      <aside class="side-panel">
+        <section class="panel-card streak-card">
+          <div class="panel-heading">
+            <span>СЕРИЯ</span>
+            <span class="live-dot">LIVE</span>
+          </div>
+          <div class="streak-number"><strong id="streakValue">0</strong><span>побед<br />подряд</span></div>
+          <div class="streak-dots" id="streakDots">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <p>Каждая победа подряд усиливает множитель до ×3.</p>
+        </section>
+
+        <section class="panel-card risk-card" id="riskCard">
+          <div class="panel-heading">
+            <span>РИСКОВЫЙ СТОЛ</span>
+            <span class="lock-label" id="riskStatus">ЗАКРЫТ</span>
+          </div>
+          <div class="risk-visual">
+            <div class="mystery-card" id="mysteryCard"><span>?</span></div>
+            <div>
+              <span>НА КОНУ</span>
+              <strong id="riskPot">0</strong>
+              <small>Угадай цвет и удвой</small>
+            </div>
+          </div>
+          <div class="risk-actions">
+            <button id="redButton" class="red-button" type="button" disabled>♥ КРАСНОЕ</button>
+            <button id="blackButton" class="black-button" type="button" disabled>♠ ЧЁРНОЕ</button>
+          </div>
+          <button class="collect-button" id="collectButton" type="button" disabled>ЗАБРАТЬ ВЫИГРЫШ</button>
+        </section>
+
+        <section class="panel-card paytable-card">
+          <div class="panel-heading">
+            <span>ЦЕННЫЕ СИМВОЛЫ</span>
+            <span>× СТАВКА</span>
+          </div>
+          <div class="paytable">
+            <div><span class="mini-symbol seven">7</span><p><b>НЕОНОВАЯ 7</b><small>×20 за линию</small></p></div>
+            <div><span class="mini-symbol diamond">◆</span><p><b>АЛМАЗ</b><small>×12 за линию</small></p></div>
+            <div><span class="mini-symbol wild">W</span><p><b>WILD</b><small>Заменяет любой</small></p></div>
+            <div><span class="mini-symbol scatter">⚡</span><p><b>РАЗРЯД</b><small>3+ дают жар</small></p></div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>18+ ПОНАРОШКУ</span>
+      <p>Развлекательная игра без реальных денег, платежей и вывода средств.</p>
+      <span id="sessionSpins">СПИНОВ: 0</span>
+    </footer>
+
+    <div class="toast" id="toast" role="status"></div>
+    <canvas id="confettiCanvas"></canvas>
+
+    <script src="game.js"></script>
+  </body>
+</html>
